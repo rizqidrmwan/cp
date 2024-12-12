@@ -7,7 +7,24 @@
   	<link rel="stylesheet"  href="./index4.css" />
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inria Serif:wght@700&display=swap" />
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
-  	
+  	<script>
+      let comments = [];
+
+      function submitComment() {
+         const commentInput = document.getElementById('commentInput');
+         const commentText = commentInput.value.trim();
+         if (commentText) {
+            comments.push(commentText);
+            commentInput.value = '';
+            displayComments();
+         }
+      }
+
+      function displayComments() {
+         const commentList = document.getElementById('commentList');
+         commentList.innerHTML = comments.map(comment => `<div class='comment-item'>${comment}</div>`).join('');
+      }
+   </script>
 </head>
 <body>
   	  	<div class="komentar">
@@ -96,9 +113,13 @@
       			</div>
     		</div>
   	</div>
-  	
-  	
-  	
+  	<div class="textarea-field">
+         <div class="label">Berikan feedback anda</div>
+         <textarea id="commentInput" class="textarea" placeholder="Tulis komentar anda di sini..."></textarea>
+         <button class="button8" onclick="submitComment()">Kirim</button>
+      </div>
+      <div id="commentList" class="comment-list"></div>
+   </div>
   	
 </body>
 </html>
