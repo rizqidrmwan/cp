@@ -20,9 +20,10 @@
          }
 
       function displayComments() {
-         const commentList = document.getElementById('commentList');
-         commentList.innerHTML = comments.map(comment => `<div class='comment-item'>${comment}</div>`).join('');
-      }
+    const commentList = document.getElementById('commentList');
+    console.log("Rendering comments..."); // Log rendering komentar
+    commentList.innerHTML = comments.map(comment => `<div class='comment-item'>${comment}</div>`).join('');
+ }
       
    </script>
 </head>
