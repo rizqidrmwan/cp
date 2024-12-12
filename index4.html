@@ -8,44 +8,9 @@
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inria Serif:wght@700&display=swap" />
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
   	
-  	<script>
-    function submitComment() {
-      // Ambil teks dari textarea
-      const commentInput = document.getElementById('commentInput');
-      const commentText = commentInput.value;
-
-      // Tambahkan komentar ke halaman (contoh sederhana)
-      const commentList = document.getElementById('commentList');
-      const newComment = document.createElement('div');
-      newComment.textContent = commentText;
-      commentList.appendChild(newComment);
-
-      // Kosongkan textarea
-      commentInput.value = '';
-    }
-  </script>
-  	<style>
-    /* Gaya untuk textarea dan tombol */
-    #commentInput {
-      width: 100%;
-      padding: 10px;
-    }
-    #submitBtn {
-      background-color: blue;
-      color: white;
-      padding: 10px 20px;
-    }
-  </style>
 </head>
 <body>
-  <div class="komentar-child">
-    <textarea id="commentInput" placeholder="Tulis komentar Anda"></textarea>
-    <button id="submitBtn" onclick="submitComment()">Kirim</button>
-  </div>
-  <div id="commentList">
-    </div>
-  	
-  	<div class="komentar">
+  	  	<div class="komentar">
     		<div class="how-to-become-a-data-analyst-1-parent">
       			<img class="how-to-become-a-data-analyst-1-icon" alt="" src="How-To-Become-A-Data-Analyst 1.png">
       			
@@ -126,7 +91,6 @@
     		<div class="textarea-field">
       			<div class="label">Berikan feedback anda</div>
       			<div class="textarea">
-        				<div class="value">bagus banget, banyak membantu aplikasi</div>
         				<img class="drag-icon" alt="" src="Drag.svg">
         				
       			</div>
