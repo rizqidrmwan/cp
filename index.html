@@ -13,7 +13,43 @@
     <img class="how-to-become-a-data-analyst-1-icon" alt="Ilustrasi Data Analyst" src="How-To-Become-A-Data-Analyst 1.png">
     <div class="rectangle-parent">
       <div class="group-child"></div>
+    
+  <div class="button" onclick="showKomentar()">
+    <div class="button1">Komentar</div>
+  </div>
+  <div class="button2" onmouseover="changeColor('button2')" onmouseout="resetColor('button2')">
+    <div class="button1">Monitoring</div>
+  </div>
+  <div class="button4" onclick="showDashboard()" onmouseover="changeColor('button4')" onmouseout="resetColor('button4')">
+    <div class="button1">Dashboard</div>
+  </div>
+  <div class="button6" onclick="showAbout()" onmouseover="changeColor('button6')" onmouseout="resetColor('button6')">
+    <div class="button1">About</div>
+  </div>
 
+  <script>
+    function showKomentar() {
+      // Tambahkan kode untuk menampilkan modal komentar, misalnya:
+      document.getElementById("modalKomentar").style.display = "block";
+    }
+
+    function showDashboard() {
+      // Tambahkan kode untuk mengarahkan ke halaman dashboard, misalnya:
+      window.location.href = "index2.html";
+    }
+
+    function showAbout() {
+      // Tambahkan kode untuk menampilkan informasi tentang proyek, misalnya:
+      document.getElementById("aboutInfo").style.display = "block";
+    }
+
+    function changeColor(buttonId) {
+      document.getElementById(buttonId).style.backgroundColor = "lightgray";
+    }
+
+    function resetColor(buttonId) {
+      document.getElementById(buttonId).style.backgroundColor = "";
+    }
       <div class="button">
         <div class="button1">Komentar</div>
       </div>
