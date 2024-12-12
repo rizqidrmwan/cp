@@ -8,10 +8,31 @@
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inria Serif:wght@700&display=swap" />
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
   	
-  	
+  	<script>
+    function submitComment() {
+      // Ambil teks dari textarea
+      const commentInput = document.getElementById('commentInput');
+      const commentText = commentInput.value;
+
+      // Tambahkan komentar ke halaman (contoh sederhana)
+      const commentList = document.getElementById('commentList');
+      const newComment = document.createElement('div');
+      newComment.textContent = commentText;
+      commentList.appendChild(newComment);
+
+      // Kosongkan textarea
+      commentInput.value = '';
+    }
+  </script>
   	
 </head>
 <body>
+  <div class="komentar-child">
+    <textarea id="commentInput" placeholder="Tulis komentar Anda"></textarea>
+    <button onclick="submitComment()">Kirim</button>
+  </div>
+  <div id="commentList">
+    </div>
   	
   	<div class="komentar">
     		<div class="how-to-become-a-data-analyst-1-parent">
