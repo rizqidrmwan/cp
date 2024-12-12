@@ -24,12 +24,23 @@
       commentInput.value = '';
     }
   </script>
-  	
+  	<style>
+    /* Gaya untuk textarea dan tombol */
+    #commentInput {
+      width: 100%;
+      padding: 10px;
+    }
+    #submitBtn {
+      background-color: blue;
+      color: white;
+      padding: 10px 20px;
+    }
+  </style>
 </head>
 <body>
   <div class="komentar-child">
     <textarea id="commentInput" placeholder="Tulis komentar Anda"></textarea>
-    <button onclick="submitComment()">Kirim</button>
+    <button id="submitBtn" onclick="submitComment()">Kirim</button>
   </div>
   <div id="commentList">
     </div>
