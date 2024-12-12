@@ -18,14 +18,12 @@
             commentInput.value = '';
             displayComments();
          }
-      
+
       function displayComments() {
          const commentList = document.getElementById('commentList');
-         console.log("Menampilkan komentar:", comments); // Debug saat menampilkan komentar
-         commentList.innerHTML = comments
-            .map(comment => `<div class='comment-item'>${comment}</div>`)
-            .join('');
+         commentList.innerHTML = comments.map(comment => `<div class='comment-item'>${comment}</div>`).join('');
       }
+      
    </script>
 </head>
 <body>
