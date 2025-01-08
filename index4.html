@@ -1,112 +1,112 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   	<meta charset="utf-8">
   	<meta name="viewport" content="initial-scale=1, width=device-width">
   	
-  	<link rel="stylesheet"  href="./index4.css" />
-  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inria Serif:wght@700&display=swap" />
+  	<link rel="stylesheet" href="./index4.css" />
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inria+Serif:wght@700&display=swap" />
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
   	<script>
       let comments = [];
+      const maxCommentLength = 300;
+
+      // Dummy sentiment analysis function
+      function analyzeSentiment(text) {
+         const positiveWords = ["bagus", "baik", "membantu"];
+         const negativeWords = ["buruk", "jelek", "tidak"];
+         
+         let score = 0;
+         text.split(' ').forEach(word => {
+            if (positiveWords.includes(word)) score++;
+            if (negativeWords.includes(word)) score--;
+         });
+
+         return score > 0 ? 'Positive' : score < 0 ? 'Negative' : 'Neutral';
+      }
 
       function submitComment() {
          const commentInput = document.getElementById('commentInput');
          const commentText = commentInput.value.trim();
-         if (commentText) {
-            comments.push(commentText);
+         
+         if (commentText && commentText.length <= maxCommentLength) {
+            const sentiment = analyzeSentiment(commentText);
+            comments.push({ text: commentText, sentiment: sentiment });
             commentInput.value = '';
             displayComments();
+         } else {
+            alert('Please ensure your comment is within the character limit!');
          }
       }
+
       function displayComments() {
-    const commentList = document.getElementById('commentList');
-    console.log("Rendering comments..."); // Log rendering komentar
-    commentList.innerHTML = comments.map(comment => `<div class='comment-item'>${comment}</div>`).join('');
- }
-      
-   </script>
+         const commentList = document.getElementById('commentList');
+         commentList.innerHTML = comments.map((comment, index) => `
+            <div class="comment-item">
+               <p><strong>Sentiment: </strong>${comment.sentiment}</p>
+               <p>${comment.text}</p>
+               <button onclick="deleteComment(${index})">Delete</button>
+            </div>
+         `).join('');
+      }
+
+      function deleteComment(index) {
+         comments.splice(index, 1);
+         displayComments();
+      }
+
+      function sortComments(order) {
+         if (order === 'Newest') {
+            comments.reverse();
+         } else {
+            comments.sort((a, b) => a.date - b.date); // You can add a date field to each comment
+         }
+         displayComments();
+      }
+
+      function updateCharacterCount() {
+         const commentInput = document.getElementById('commentInput');
+         const remaining = maxCommentLength - commentInput.value.length;
+         document.getElementById('charCount').textContent = `${remaining} characters remaining`;
+      }
+  	</script>
 </head>
 <body>
-  	  	<div class="komentar">
-    		<div class="how-to-become-a-data-analyst-1-parent">
-      			<img class="how-to-become-a-data-analyst-1-icon" alt="" src="How-To-Become-A-Data-Analyst 1.png">
-      			
-      			<div class="rectangle-parent">
-        				<div class="group-child">
-        				</div>
-        				<b class="analisis-sentimen-pengguna">Analisis Sentimen Pengguna terhadap Layanan Transportasi Gojek di Indonesia: Studi Kasus pada Ulasan Aplikasi di Play Store</b>
-        				<div class="logo-bsi-1">
-        				</div>
-        				<a href="index.html" class="button">
-          					<div class="button1">About</div>
-        				</a>
-        				<a href="index2.html" class="button2">
-          					<div class="button1">Dashboard</div>
-        				</a>
-      			</div>
-      			<div class="komentar-wrapper">
-        				<b class="komentar1">Komentar</b>
-      			</div>
-      			<img class="mb-white-200-1-icon" alt="" src="mb_white_200 1.png">
-      			</div>
-    		<a href="index3.html" class="button4">
-      			<div class="button1">Monitoring</div>
-    		</a>
-    		<div class="button6">
-      			<div class="button1">Komentar</div>
-    		</div>
-    		</div>
-    		<div class="komentar-inner">
-      			<div class="baguss-bangett-banyak-memban-parent">
-        				<div class="baguss-bangett-banyak">baguss bangett!! banyak membantu aplikasi nya��</div>
-        				<div class="baguss-bangett-banyak1">baguss bangett!! banyak membantu aplikasi nya</div>
-        				<div class="bagus-banget-banyak">bagus banget banyak membantu aplikasi</div>
-        				<div class="bagus-banget-banyak1">['bagus', 'banget', 'banyak', 'membantu', 'aplikasi']</div>
-        				<div class="bagus-banget-membantu">['bagus', 'banget', 'membantu', 'aplikasi']</div>
-        				<div class="bagus-banget-bantu">['bagus', 'banget', 'bantu', 'aplikasi']</div>
-      			</div>
-    		</div>
-    		<div class="komentar-child">
-    		</div>
-    		<b class="dataset">Dataset</b>
-    		<b class="text-preprocessing">Text preprocessing</b>
-    		<img class="image-3-icon" alt="" src="image 7.png">
-    		
-    		<div class="group-div">
-      			<div class="group-parent">
-        				<div class="group-parent">
-          					<div class="image">
-          					</div>
-          					<div class="stw-removal">Stw-Removal</div>
-          					<div class="stemming">Stemming</div>
-          					<div class="case-folding">case folding</div>
-          					<div class="cleansing">cleansing</div>
-          					<div class="normalisasi">normalisasi</div>
-          					<div class="tokenizing">tokenizing</div>
-        				</div>
-        				<div class="group-item">
-        				</div>
-        				<img class="group-inner" alt="" src="Line 2.svg">
-        				
-        				<div class="line-div">
-        				</div>
-        				<img class="line-icon" alt="" src="Line 4.svg">
-        				
-        				<img class="group-child1" alt="" src="Line 5.svg">
-        				
-        				<img class="group-child2" alt="" src="Line 6.svg">
-        				
-      			</div>
-    		</div>
+  	<div class="komentar">
+      <div class="how-to-become-a-data-analyst-1-parent">
+         <img class="how-to-become-a-data-analyst-1-icon" alt="" src="How-To-Become-A-Data-Analyst 1.png">
+         <div class="rectangle-parent">
+            <b class="analisis-sentimen-pengguna">Analisis Sentimen Pengguna terhadap Layanan Transportasi Gojek di Indonesia: Studi Kasus pada Ulasan Aplikasi di Play Store</b>
+         </div>
+      </div>
+      <div class="komentar-wrapper">
+         <b class="komentar1">Komentar</b>
+      </div>
+      <img class="mb-white-200-1-icon" alt="" src="mb_white_200 1.png">
+      <a href="index3.html" class="button4"><div class="button1">Monitoring</div></a>
+      <div class="button6"><div class="button1">Komentar</div></div>
 
-  	<div class="textarea-field">
+      <!-- Comment Sorting Dropdown -->
+      <div>
+         <label for="sortComments">Sort by:</label>
+         <select id="sortComments" onchange="sortComments(this.value)">
+            <option value="Newest">Newest First</option>
+            <option value="Oldest">Oldest First</option>
+         </select>
+      </div>
+
+      <!-- Feedback Textarea -->
+      <div class="textarea-field">
          <div class="label">Berikan feedback anda</div>
-         <textarea id="commentInput" class="textarea" placeholder="Tulis komentar anda di sini..."></textarea>
+         <textarea id="commentInput" class="textarea" placeholder="Tulis komentar anda di sini..." oninput="updateCharacterCount()"></textarea>
+         <div id="charCount">300 characters remaining</div>
          <button class="button8" onclick="submitComment()">Kirim</button>
       </div>
+
+      <!-- Display Comments -->
       <div id="commentList" class="comment-list"></div>
    </div>
-  	
 </body>
 </html>
+
